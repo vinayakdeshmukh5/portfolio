@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Technical Skills Matrix — Vinayak Deshmukh. C/C++, Python, ESP32, ESP8266, Arduino, PCB Design, Blynk IoT, and Web Technologies." />
+  <title>Skills Matrix | Vinayak Deshmukh — Embedded Systems &amp; IoT Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    .skills-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .skill-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(6, 182, 212, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .skill-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--cyan);
+    }
+
+    .skill-icon-box.amber {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: var(--accent);
+    }
+
+    .skill-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .skill-card-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .skill-items-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: #e2e8f0;
+      background: rgba(11, 15, 25, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: var(--transition-fast);
+    }
+
+    .skill-chip:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .skill-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .skill-chip-dot.amber {
+      background: var(--accent);
+    }
+
+    @media (max-width: 1024px) {
+      .skills-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">VD</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Vinayak Deshmukh</span>
+            <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html" class="active">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Get in Touch</a></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html" class="active">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- ── PAGE HERO ────────────────────────────── -->
+    <div style="background: rgba(17, 24, 39, 0.4); border-bottom: 1px solid var(--border); padding: 80px 0 60px; position: relative;">
+      <div class="container">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; letter-spacing: 0.1em;">
+          // TECHNICAL ARSENAL
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;">
+          Technical <span class="accent-cyan">Skills Matrix</span>
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; line-height: 1.75;">
+          A comprehensive overview of competencies spanning embedded firmware, microcontroller architectures, rapid prototyping, and web systems.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── SKILLS MATRIX ────────────────────────── -->
+    <section class="section" aria-labelledby="skills-matrix-title">
+      <div class="container">
+        <p class="section-label reveal">// DOMAIN PROFICIENCIES</p>
+        <h2 class="section-title reveal reveal-delay-1" id="skills-matrix-title">Categorized Matrix</h2>
+
+        <div class="skills-matrix-grid">
+          <!-- 1. Languages -->
+          <div class="skill-card reveal reveal-delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">💻</div>
+              <div>
+                <h3 class="skill-card-title">Languages</h3>
+                <span class="skill-card-sub">// Low-level systems &amp; modern scripting</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot"></span> C (Embedded &amp; Bare-Metal)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> C++ (OOP &amp; Microcontrollers)</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Python (Data &amp; AI/ML)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> JavaScript (ES6+ Logic)</div>
+            </div>
+          </div>
+
+          <!-- 2. Embedded & Hardware -->
+          <div class="skill-card reveal reveal-delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box amber">⚡</div>
+              <div>
+                <h3 class="skill-card-title">Embedded &amp; Hardware</h3>
+                <span class="skill-card-sub">// Microcontroller architectures &amp; signals</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> ESP32 (Wi-Fi / BLE / Dual-Core)</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> ESP8266 Wi-Fi SoC</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Arduino (Uno, Nano, Mega)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Microcontroller Interfacing</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Sensor Telemetry Pipelines</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Protocols: UART / I²C / SPI / GPIO</div>
+            </div>
+          </div>
+
+          <!-- 3. Circuit & Prototyping -->
+          <div class="skill-card reveal reveal-delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box amber">🔌</div>
+              <div>
+                <h3 class="skill-card-title">Circuit &amp; Prototyping</h3>
+                <span class="skill-card-sub">// Electronics design &amp; rapid physical iteration</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Circuit Design &amp; Simulation</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> PCB Layout Fundamentals</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> VLSI Fundamentals</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> 3D Printing &amp; Prototyping</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Power Electronics &amp; Relays</div>
+            </div>
+          </div>
+
+          <!-- 4. IoT & Web Tech -->
+          <div class="skill-card reveal reveal-delay-4">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">🌐</div>
+              <div>
+                <h3 class="skill-card-title">IoT &amp; Web Tech</h3>
+                <span class="skill-card-sub">// Connected telemetry &amp; developer toolchains</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Blynk IoT Platform</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> HTML5 &amp; CSS3 Architecture</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Responsive Web Architecture</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> VS Code &amp; Arduino IDE</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Git &amp; GitHub Version Control</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">// VINAYAK DESHMUKH · SKILLS</span>
+          <span class="footer-status"><span class="status-dot"></span>Firmware Active</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="skills.html" class="footer-link">Skills</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="leadership.html" class="footer-link">Leadership</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 Vinayak Deshmukh</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open'); mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+    }));
+
+    document.addEventListener('mousemove', e => {
+      const g = document.getElementById('cursorGlow');
+      g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

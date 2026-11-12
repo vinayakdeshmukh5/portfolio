@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Leadership, Hackathons &amp; Experience Timeline — Vinayak Deshmukh. Top 5 KLE Belagavi Hackathon 2026, Skilldunia Intern, GNDEC ECE Newsletter Coordinator, SIH Shortlists." />
+  <title>Leadership &amp; Timeline | Vinayak Deshmukh — Embedded Systems &amp; IoT Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    .timeline-container {
+      position: relative;
+      margin-top: 48px;
+      padding-left: 36px;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 11px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--cyan) 50%, rgba(6, 182, 212, 0.1) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -36px;
+      top: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #0b0f19;
+      border: 2px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px var(--cyan);
+      z-index: 2;
+    }
+
+    .timeline-node.amber {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .timeline-node-inner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .timeline-node.amber .timeline-node-inner {
+      background: var(--accent);
+    }
+
+    .timeline-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    .timeline-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-role-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .timeline-date-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .timeline-date-badge.amber {
+      color: var(--accent);
+      background: var(--accent-dim);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .timeline-org {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">VD</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Vinayak Deshmukh</span>
+            <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="leadership.html" class="active">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Get in Touch</a></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="leadership.html" class="active">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- ── PAGE HERO ────────────────────────────── -->
+    <div style="background: rgba(17, 24, 39, 0.4); border-bottom: 1px solid var(--border); padding: 80px 0 60px; position: relative;">
+      <div class="container">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; letter-spacing: 0.1em;">
+          // EXPERIENCE &amp; INITIATIVES
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;">
+          Hackathons, Experience &amp; <span class="accent-cyan">Leadership</span>
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; line-height: 1.75;">
+          A record of high-stakes hackathons, industrial AI/ML data training, institutional student coordination, and technical society contributions.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── TIMELINE SECTION ─────────────────────── -->
+    <section class="section" aria-labelledby="timeline-title">
+      <div class="container">
+        <p class="section-label reveal">// CHRONOLOGY</p>
+        <h2 class="section-title reveal reveal-delay-1" id="timeline-title">Key Milestones</h2>
+
+        <div class="timeline-container">
+          <!-- Item 1: KLE Belagavi Hackathon 2026 -->
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="timeline-node amber" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Top 5 Hardware Placement — KLE Belagavi Hackathon 2026</h3>
+                  <div class="timeline-org">KLE Technological University, Belagavi</div>
+                </div>
+                <span class="timeline-date-badge amber">August 2026</span>
+              </div>
+              <p class="timeline-desc">
+                Competed in the highly demanding <strong>Hardware Track</strong> among engineering teams from across the region. Architected and demonstrated a fully operational, sensor-integrated embedded hardware prototype within intensive hackathon constraints, securing a distinguished <strong>Top 5 Placement</strong> evaluated by industry experts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Skilldunia Internship -->
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Python &amp; AI/ML Intern</h3>
+                  <div class="timeline-org">Skilldunia</div>
+                </div>
+                <span class="timeline-date-badge">Feb 2025 – Mar 2025</span>
+              </div>
+              <p class="timeline-desc">
+                Developed data analytics pipelines, exploratory data analysis routines, and worked with foundational machine learning models in Python. Leveraged algorithmic data processing to extract insights from structured sensor and analytical datasets.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: ECE Department Newsletter Coordinator -->
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="timeline-node amber" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Student Coordinator — Official Newsletter</h3>
+                  <div class="timeline-org">ECE Department, Guru Nanak Dev Engineering College (GNDEC), Bidar</div>
+                </div>
+                <span class="timeline-date-badge amber">2024 – Present</span>
+              </div>
+              <p class="timeline-desc">
+                Serving as head student coordinator for the department's flagship publication. Responsible for editorial curation, technical writing, author reviews, layout publishing, and highlighting departmental research milestones and student innovations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Smart India Hackathon Shortlists -->
+          <div class="timeline-item reveal reveal-delay-4">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Smart India Hackathon (SIH) — Dual Institutional Shortlists</h3>
+                  <div class="timeline-org">Ministry of Education / AICTE National Initiative</div>
+                </div>
+                <span class="timeline-date-badge">SIH 2025 &amp; SIH 2026</span>
+              </div>
+              <p class="timeline-desc">
+                Qualified consecutively across both <strong>SIH 2025</strong> and <strong>SIH 2026</strong> institutional screening rounds. Devised innovative hardware and IoT problem-statement proposals addressing national infrastructure and smart telemetry challenges.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5: IEEE & ISTE Student Memberships -->
+          <div class="timeline-item reveal reveal-delay-5">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Active Member &amp; Technical Volunteer</h3>
+                  <div class="timeline-org">IEEE Student Branch &amp; ISTE Student Chapter</div>
+                </div>
+                <span class="timeline-date-badge">2023 – Present</span>
+              </div>
+              <p class="timeline-desc">
+                Active member in both the Institute of Electrical and Electronics Engineers (IEEE) and the Indian Society for Technical Education (ISTE). Assisted in organizing microcontroller workshops, symposiums, and peer-learning bootcamps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">// VINAYAK DESHMUKH · TIMELINE</span>
+          <span class="footer-status"><span class="status-dot"></span>Available for Opportunities</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="skills.html" class="footer-link">Skills</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="leadership.html" class="footer-link">Leadership</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 Vinayak Deshmukh</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open'); mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+    }));
+
+    document.addEventListener('mousemove', e => {
+      const g = document.getElementById('cursorGlow');
+      g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

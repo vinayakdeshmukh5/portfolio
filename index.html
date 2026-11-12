@@ -1,0 +1,1968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vinayak Deshmukh — Electronics & Communication Engineer specializing in IoT, Embedded Systems, Firmware, and Web Technologies. ₹5,00,000+ Research Grants Won (VTU VRIF & NAIN 2.0)." />
+  <meta name="keywords"
+    content="Vinayak Deshmukh, ECE portfolio, embedded systems, IoT engineer, ESP32, Arduino, firmware developer, VTU VRIF, NAIN 2.0, KLE Belagavi Hackathon, GNDEC Bidar" />
+  <meta name="author" content="Vinayak Deshmukh" />
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vinayak Deshmukh | ECE & IoT Embedded Systems Specialist" />
+  <meta property="og:description"
+    content="Bridging physical hardware and connected cloud telemetry through robust firmware and full-stack interfaces. ₹5L+ Research Grants Won." />
+
+  <title>Vinayak Deshmukh | Electronics &amp; Communication Engineer — IoT &amp; Embedded Systems</title>
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Project Cards & Grid */
+    .projects-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      background: rgba(22, 32, 51, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.15);
+      border-color: var(--border-cyan);
+    }
+
+    .project-card.featured-card {
+      grid-column: span 2;
+      border-color: rgba(6, 182, 212, 0.4);
+      background: linear-gradient(135deg, rgba(22, 32, 51, 0.85), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(6, 182, 212, 0.18);
+    }
+
+    .project-card.featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--accent), var(--cyan));
+    }
+
+    .project-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      gap: 16px;
+    }
+
+    .project-badge-grant {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
+    }
+
+    .project-badge-prod {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .project-badge-iot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .project-category-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .project-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(11, 15, 25, 0.8);
+      color: var(--cyan);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .tech-pill.amber {
+      color: var(--accent);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .project-links-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* Skills Matrix */
+    .skills-matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .skill-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      border-color: var(--border-cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(6, 182, 212, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .skill-card-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .skill-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--cyan);
+    }
+
+    .skill-icon-box.amber {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.3);
+      color: var(--accent);
+    }
+
+    .skill-card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .skill-card-sub {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .skill-items-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      background: rgba(11, 15, 25, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: var(--transition-fast);
+    }
+
+    .skill-chip:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      background: rgba(6, 182, 212, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .skill-chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .skill-chip-dot.amber {
+      background: var(--accent);
+    }
+
+    /* Timeline */
+    .timeline-container {
+      position: relative;
+      margin-top: 48px;
+      padding-left: 36px;
+    }
+
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: 11px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent) 0%, var(--cyan) 50%, rgba(6, 182, 212, 0.1) 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: -36px;
+      top: 4px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #0b0f19;
+      border: 2px solid var(--cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px var(--cyan);
+      z-index: 2;
+    }
+
+    .timeline-node.amber {
+      border-color: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .timeline-node-inner {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .timeline-node.amber .timeline-node-inner {
+      background: var(--accent);
+    }
+
+    .timeline-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: var(--transition);
+    }
+
+    .timeline-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-role-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .timeline-date-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .timeline-date-badge.amber {
+      color: var(--accent);
+      background: var(--accent-dim);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .timeline-org {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .timeline-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 48px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-method-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .contact-method-card:hover {
+      border-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.08);
+      transform: translateX(4px);
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .contact-method-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-method-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .contact-form-card {
+      background: rgba(22, 32, 51, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+    }
+
+    .form-control {
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      transition: var(--transition-fast);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+      background: rgba(11, 15, 25, 0.95);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .project-card.featured-card {
+        grid-column: span 1;
+      }
+      .skills-matrix-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .stat-strip-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-strip-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background cursor follower glow -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Toast notification system -->
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">⚡</span>
+    <span id="toastMessage">Action completed successfully.</span>
+  </div>
+
+  <!-- ── NAVIGATION BAR ─────────────────────────────── -->
+  <header>
+    <nav id="navbar" aria-label="Main Portfolio Navigation">
+      <div class="container">
+        <div class="nav-inner">
+          <!-- Logo & Brand -->
+          <a href="#hero" class="nav-logo" aria-label="Vinayak Deshmukh — Back to Top">
+            <div class="nav-logo-icon">VD</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Vinayak Deshmukh</span>
+              <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation links -->
+          <ul class="nav-links" role="list">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#grants" class="nav-link">Grants</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#experience" class="nav-link">Timeline</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Nav Call to Actions -->
+          <div class="nav-cta">
+            <button class="btn btn-outline" id="navResumeBtn" style="padding: 7px 16px; font-size: 0.82rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              Resume
+            </button>
+            <a href="#contact" class="btn btn-primary" style="padding: 7px 18px; font-size: 0.82rem;">
+              Get in Touch
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation Drawer">
+    <a href="#hero" class="mobile-link">Home</a>
+    <a href="#about" class="mobile-link">About &amp; Philosophy</a>
+    <a href="#grants" class="mobile-link">Research Grants (₹5L+)</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#skills" class="mobile-link">Skills Matrix</a>
+    <a href="#experience" class="mobile-link">Experience &amp; Hackathons</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <div style="margin-top: 16px; width: 100%; max-width: 300px; display: flex; flex-direction: column; gap: 10px;">
+      <button class="btn btn-amber" id="mobileResumeBtn" style="width: 100%;">View Resume</button>
+      <a href="#contact" class="btn btn-primary" style="width: 100%;">Connect with Vinayak</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ── SECTION 1: HERO SECTION ────────────────────── -->
+    <section id="hero" aria-label="Introduction and Overview">
+      <!-- Ambient circuit SVG background -->
+      <div class="hero-bg-canvas" aria-hidden="true">
+        <svg width="100%" height="100%" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.12;">
+          <defs>
+            <pattern id="circuitGrid" width="120" height="120" patternUnits="userSpaceOnUse">
+              <path d="M 120 0 L 0 0 0 120" fill="none" stroke="rgba(6, 182, 212, 0.4)" stroke-width="0.8" />
+              <circle cx="0" cy="0" r="3" fill="#06b6d4" />
+              <path d="M 60 0 L 60 60 L 120 60" fill="none" stroke="rgba(245, 158, 11, 0.4)" stroke-width="0.8" />
+              <circle cx="60" cy="60" r="2.5" fill="#f59e0b" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuitGrid)" />
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Column: Bio, Creds, Headline & Actions -->
+          <div>
+            <div class="hero-eyebrow">
+              <span class="status-pulse-dot"></span>
+              <span>ELECTRONICS &amp; COMMUNICATION ENGINEER · B.E. 5TH SEM</span>
+            </div>
+
+            <h1 class="hero-title">
+              Vinayak <span class="accent-cyan">Deshmukh</span>
+            </h1>
+
+            <div class="hero-role">
+              <span>IoT &amp; Embedded Systems Specialist</span>
+              <span class="hero-role-slash">/</span>
+              <span style="color: var(--accent);">Firmware Architect</span>
+            </div>
+
+            <p class="hero-tagline">
+              "Bridging physical hardware and connected cloud telemetry through robust firmware and full-stack interfaces."
+            </p>
+
+            <!-- Stat Strip Pill Badges -->
+            <div class="hero-badges-strip" role="list" aria-label="Key highlights">
+              <div class="hero-badge-pill" role="listitem" style="border-color: rgba(245, 158, 11, 0.4); color: var(--accent);">
+                <span>🏆</span>
+                <strong>₹5,00,000+ Research Grants Won</strong>
+              </div>
+              <div class="hero-badge-pill" role="listitem">
+                <span>⚡</span>
+                <span>Top 5 KLE Belagavi Hackathon 2026</span>
+              </div>
+              <div class="hero-badge-pill" role="listitem">
+                <span>🎯</span>
+                <span>2x Smart India Hackathon Shortlist</span>
+              </div>
+              <div class="hero-badge-pill" role="listitem">
+                <span>🎓</span>
+                <span>CGPA 8.2 | GNDEC Bidar</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" id="heroExploreBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+                </svg>
+                Explore Hardware Projects
+              </a>
+              <button class="btn btn-outline" id="heroResumeBtn" aria-label="Download Vinayak Deshmukh's Resume">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Resume
+              </button>
+              <a href="#contact" class="btn btn-ghost">
+                Contact Me →
+              </a>
+            </div>
+
+            <!-- Direct Social Links Strip -->
+            <div class="hero-socials">
+              <span class="hero-social-label">CHANNELS //</span>
+              <a href="https://github.com/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="GitHub Profile">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+              <a href="https://linkedin.com/in/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="hero-social-link" title="LinkedIn Profile">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+              </a>
+              <a href="mailto:vinayakdeshmukh5105@gmail.com" class="hero-social-link" title="Email Vinayak">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive ESP32 Telemetry HUD Visual -->
+          <div>
+            <div class="telemetry-hud-card reveal">
+              <div class="hud-header">
+                <div class="hud-title-wrap">
+                  <div class="hud-blinker" aria-hidden="true"></div>
+                  <span class="hud-title">ESP32 // TELEMETRY NODE #01</span>
+                </div>
+                <span class="hud-tag">ONLINE @ 240MHz</span>
+              </div>
+
+              <!-- High-Tech Circuit Graphic -->
+              <svg class="circuit-telemetry-svg" viewBox="0 0 460 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="chipBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#162033" />
+                    <stop offset="100%" stop-color="#0b0f19" />
+                  </linearGradient>
+                  <filter id="glowFilter" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="3" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <!-- Traces -->
+                <path d="M 40 50 L 160 50 L 160 90" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" />
+                <path d="M 40 130 L 160 130" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" />
+                <path d="M 40 210 L 160 210 L 160 170" stroke="rgba(6, 182, 212, 0.4)" stroke-width="2" />
+
+                <path d="M 300 90 L 300 50 L 420 50" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
+                <path d="M 300 130 L 420 130" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
+                <path d="M 300 170 L 300 210 L 420 210" stroke="rgba(245, 158, 11, 0.4)" stroke-width="2" />
+
+                <!-- Central Microcontroller Package -->
+                <rect x="160" y="70" width="140" height="120" rx="12" fill="url(#chipBg)" stroke="rgba(6, 182, 212, 0.6)" stroke-width="2" filter="url(#glowFilter)" />
+                <rect x="175" y="85" width="110" height="90" rx="6" fill="#080c14" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" />
+                <text x="230" y="125" fill="#f8fafc" font-family="JetBrains Mono" font-size="12" font-weight="700" text-anchor="middle">ESP32-S3</text>
+                <text x="230" y="145" fill="#06b6d4" font-family="JetBrains Mono" font-size="9" text-anchor="middle">XTENSA LX7 DUAL</text>
+                <text x="230" y="160" fill="#f59e0b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">FIRMWARE ACTIVE</text>
+
+                <!-- Input Nodes (Sensors) -->
+                <rect x="10" y="35" width="60" height="30" rx="6" fill="#111827" stroke="rgba(6, 182, 212, 0.3)" />
+                <text x="40" y="54" fill="#06b6d4" font-family="JetBrains Mono" font-size="8" text-anchor="middle">ADC/SENS</text>
+
+                <rect x="10" y="115" width="60" height="30" rx="6" fill="#111827" stroke="rgba(6, 182, 212, 0.3)" />
+                <text x="40" y="134" fill="#06b6d4" font-family="JetBrains Mono" font-size="8" text-anchor="middle">I²C BUS</text>
+
+                <rect x="10" y="195" width="60" height="30" rx="6" fill="#111827" stroke="rgba(6, 182, 212, 0.3)" />
+                <text x="40" y="214" fill="#06b6d4" font-family="JetBrains Mono" font-size="8" text-anchor="middle">UART RX</text>
+
+                <!-- Output Nodes (Cloud/Relays) -->
+                <rect x="390" y="35" width="60" height="30" rx="6" fill="#111827" stroke="rgba(245, 158, 11, 0.3)" />
+                <text x="420" y="54" fill="#f59e0b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">MQTT/TCP</text>
+
+                <rect x="390" y="115" width="60" height="30" rx="6" fill="#111827" stroke="rgba(245, 158, 11, 0.3)" />
+                <text x="420" y="134" fill="#f59e0b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">BLYNK CLD</text>
+
+                <rect x="390" y="195" width="60" height="30" rx="6" fill="#111827" stroke="rgba(245, 158, 11, 0.3)" />
+                <text x="420" y="214" fill="#f59e0b" font-family="JetBrains Mono" font-size="8" text-anchor="middle">ACTUATOR</text>
+
+                <!-- Animated signal packets -->
+                <circle r="3.5" fill="#06b6d4">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" path="M 40 50 L 160 50 L 160 90" />
+                  <animate attributeName="opacity" values="0.1;1;0.1" dur="2.2s" repeatCount="indefinite" />
+                </circle>
+
+                <circle r="3.5" fill="#06b6d4">
+                  <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s" path="M 40 130 L 160 130" />
+                  <animate attributeName="opacity" values="0.1;1;0.1" dur="1.8s" begin="0.6s" repeatCount="indefinite" />
+                </circle>
+
+                <circle r="3.5" fill="#f59e0b">
+                  <animateMotion dur="2s" repeatCount="indefinite" begin="0.9s" path="M 300 90 L 300 50 L 420 50" />
+                  <animate attributeName="opacity" values="0.1;1;0.1" dur="2s" begin="0.9s" repeatCount="indefinite" />
+                </circle>
+
+                <circle r="3.5" fill="#f59e0b">
+                  <animateMotion dur="1.6s" repeatCount="indefinite" begin="1.2s" path="M 300 130 L 420 130" />
+                  <animate attributeName="opacity" values="0.1;1;0.1" dur="1.6s" begin="1.2s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+
+              <!-- Live HUD Telemetry Readouts -->
+              <div class="hud-readouts-grid">
+                <div class="hud-readout-item">
+                  <span class="hud-readout-label">PACKET RATE</span>
+                  <span class="hud-readout-value" id="hudPackets">128 pkt/s</span>
+                </div>
+                <div class="hud-readout-item">
+                  <span class="hud-readout-label">CORE TEMP</span>
+                  <span class="hud-readout-value amber" id="hudTemp">34.8 °C</span>
+                </div>
+                <div class="hud-readout-item">
+                  <span class="hud-readout-label">WIFI RSSI</span>
+                  <span class="hud-readout-value">-54 dBm</span>
+                </div>
+              </div>
+
+              <!-- Firmware Mini Console Log -->
+              <div style="margin-top: 14px; background: #080c14; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: var(--radius-sm); padding: 10px 14px; font-family: var(--font-mono); font-size: 0.72rem; color: #94a3b8; display: flex; align-items: center; justify-content: space-between;">
+                <span style="color: #34d399;">✔ System State: STABLE</span>
+                <span style="color: var(--cyan);">RTOS Heap: 184 KB Free</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STAT STRIP: ANIMATED METRIC COUNTERS ───────── -->
+    <section class="stat-strip-section" aria-label="Key Performance Indicators and Metrics">
+      <div class="container">
+        <div class="stat-strip-grid">
+          <!-- Stat 1: Research Grants Won -->
+          <div class="stat-strip-box reveal reveal-delay-1">
+            <div class="stat-strip-num amber">
+              <span>₹</span>
+              <span class="counter" data-target="500000" data-format="curr">5,00,000</span>
+              <span>+</span>
+            </div>
+            <div class="stat-strip-title">Research Grants Won</div>
+            <div class="stat-strip-desc">VTU VRIF &amp; NAIN 2.0 (Batch 1 &amp; Batch 2)</div>
+          </div>
+
+          <!-- Stat 2: Hackathon Placement -->
+          <div class="stat-strip-box reveal reveal-delay-2">
+            <div class="stat-strip-num cyan">
+              <span>Top&nbsp;</span>
+              <span class="counter" data-target="5">5</span>
+            </div>
+            <div class="stat-strip-title">KLE Belagavi Hackathon 2026</div>
+            <div class="stat-strip-desc">Hardware Track Finalist &amp; Top 5 Finish</div>
+          </div>
+
+          <!-- Stat 3: SIH Shortlists -->
+          <div class="stat-strip-box reveal reveal-delay-3">
+            <div class="stat-strip-num cyan">
+              <span class="counter" data-target="2">2</span>
+              <span>×</span>
+            </div>
+            <div class="stat-strip-title">Smart India Hackathon</div>
+            <div class="stat-strip-desc">Consecutive Institutional Shortlists (SIH 2025, 2026)</div>
+          </div>
+
+          <!-- Stat 4: Academic CGPA -->
+          <div class="stat-strip-box reveal reveal-delay-4">
+            <div class="stat-strip-num amber">
+              <span class="counter" data-target="8.2" data-decimal="1">8.2</span>
+              <span style="font-size: 1.2rem; color: var(--text-muted);">/10</span>
+            </div>
+            <div class="stat-strip-title">5th Sem B.E. ECE</div>
+            <div class="stat-strip-desc">Guru Nanak Dev Engineering College, Bidar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: ABOUT & ENGINEERING PHILOSOPHY ──── -->
+    <section id="about" class="section" aria-labelledby="aboutHeading">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+          <!-- Left: Narrative -->
+          <div>
+            <p class="section-label">// ABOUT &amp; PHILOSOPHY</p>
+            <h2 class="section-title" id="aboutHeading">
+              Engineering with <span class="accent-cyan">Deterministic Precision</span>
+            </h2>
+            <p class="section-subtitle" style="margin-bottom: 24px;">
+              From low-level microcontrollers and register configurations to high-throughput cloud dashboards and user interfaces.
+            </p>
+
+            <div style="font-size: 1rem; color: var(--text-secondary); line-height: 1.8; display: flex; flex-direction: column; gap: 16px;">
+              <p>
+                I am an <strong>Electronics &amp; Communication Engineering undergraduate</strong> at GNDEC Bidar, driven by the challenge of connecting the physical real world with digital intelligence. My core focus lies in <strong>hands-on firmware development (C/C++, Arduino)</strong>, microcontroller interfacing (ESP32, ESP8266, Uno), and real-world embedded prototyping.
+              </p>
+              <p>
+                Rather than treating software and hardware as isolated silos, I design complete feedback systems: from circuit schematics, sensor signal conditioning, and interrupt-driven firmware routines to responsive, accessible web portals that visualize real-time operational telemetry.
+              </p>
+              <p>
+                Beyond technical lab benches, I am deeply committed to engineering culture. I serve as the <strong>Student Coordinator for the ECE Department Newsletter</strong>, curating technical publications and student innovations, and hold active student memberships in <strong>IEEE and ISTE</strong>.
+              </p>
+            </div>
+
+            <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <span class="badge badge-cyan">⚡ Low-Power Firmware</span>
+              <span class="badge badge-amber">🔬 Sensor Fusion</span>
+              <span class="badge badge-green">🌐 Responsive Web Architecture</span>
+              <span class="badge badge-purple">📡 MQTT &amp; Cloud Telemetry</span>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Engineering Stack Breakdown -->
+          <div>
+            <div class="card card-glow-cyan" style="padding: 32px;">
+              <h3 style="font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <span>⚙️</span> The Embedded-to-Cloud Pipeline
+              </h3>
+
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Layer 1 -->
+                <div style="background: rgba(11, 15, 25, 0.7); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 10px; padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--cyan);">01 // PHYSICAL SENSING LAYER</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);">Analog / Digital</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                    DHT22, MQ-2, TDS, pH, Ultrasonic, and Analytical Probes with signal conditioning and noise suppression.
+                  </p>
+                </div>
+
+                <!-- Layer 2 -->
+                <div style="background: rgba(11, 15, 25, 0.7); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 10px; padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--accent);">02 // FIRMWARE &amp; LOGIC LAYER</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);">ESP32 / C++</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                    Embedded C/C++, interrupt service routines (ISR), FreeRTOS task scheduling, watchdogs, and UART/I2C/SPI drivers.
+                  </p>
+                </div>
+
+                <!-- Layer 3 -->
+                <div style="background: rgba(11, 15, 25, 0.7); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 10px; padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--cyan);">03 // TELEMETRY &amp; CLOUD GATEWAY</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);">MQTT / Blynk</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                    Encrypted wireless pipelines, threshold-triggered push alerts, and low-latency bi-directional control channels.
+                  </p>
+                </div>
+
+                <!-- Layer 4 -->
+                <div style="background: rgba(11, 15, 25, 0.7); border: 1px solid rgba(52, 211, 153, 0.2); border-radius: 10px; padding: 16px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: #34d399;">04 // FULL-STACK WEB INTERFACES</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted);">HTML5 / JS / UI</span>
+                  </div>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+                    Mobile-first dashboards, institutional web portals (acetechnoacademy.in), cross-browser accessibility, and client visualization.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: GRANTS & RESEARCH HONORS ────────── -->
+    <section id="grants" class="section" style="background: rgba(17, 24, 39, 0.35); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);" aria-labelledby="grantsHeading">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <p class="section-label" style="justify-content: center;">// COMPETITIVE RESEARCH TRACK RECORD</p>
+          <h2 class="section-title" id="grantsHeading">
+            Grants &amp; <span class="amber-gradient">Research Honors</span>
+          </h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Selected through state and university-level innovation evaluations to lead hardware research projects funded by premier governmental schemes.
+          </p>
+        </div>
+
+        <div class="grants-showcase">
+          <!-- Grant Card 1: VTU VRIF SamShoDhana Scheme -->
+          <div class="grant-card reveal reveal-delay-1">
+            <div class="grant-top-row">
+              <span class="grant-org-badge">VTU VRIF 2026</span>
+              <span class="grant-fund-pill">University Research Award</span>
+            </div>
+            <h3 class="grant-card-title">VTU VRIF SamShoDhana Scheme (2026)</h3>
+            <p class="grant-card-desc">
+              Selected as <strong>Student Researcher &amp; Team Lead</strong> under the prestigious Visvesvaraya Technological University Research Innovation Fund (VRIF) under the <em>SamShoDhana</em> initiative. Awarded following rigorous defense of embedded hardware architecture and commercial feasibility.
+            </p>
+            <ul class="grant-bullets">
+              <li>Role: Lead Student Researcher &amp; Hardware Project Architect</li>
+              <li>Awarding Body: Visvesvaraya Technological University (VTU), Belagavi</li>
+              <li>Core Focus: Advanced sensor instrumentation, hardware reliability &amp; real-time telemetry</li>
+              <li>Status: Active Research Pipeline (2026)</li>
+            </ul>
+          </div>
+
+          <!-- Grant Card 2: NAIN 2.0 (Batch 1 & Batch 2) -->
+          <div class="grant-card reveal reveal-delay-2">
+            <div class="grant-top-row">
+              <span class="grant-org-badge">Govt. of Karnataka</span>
+              <span class="grant-fund-pill">₹5,00,000+ Total Grants</span>
+            </div>
+            <h3 class="grant-card-title">NAIN 2.0 (New Age Innovation Network)</h3>
+            <p class="grant-card-desc">
+              Funded consecutively in <strong>both Batch 1 and Batch 2</strong> under Karnataka Innovation &amp; Technology Society (KITS), Department of Electronics, IT &amp; BT, Government of Karnataka.
+            </p>
+            <ul class="grant-bullets">
+              <li><strong>Batch 2 (₹4,00,000 Grant):</strong> Pixilabs Lead Researcher / Multi-Sensor Telemetry</li>
+              <li><strong>Batch 1 (₹1,00,000 Grant):</strong> Fresh Threads — Automated Resource-Efficient Laundry System</li>
+              <li>Rigorous institutional reviews, intellectual property evaluation, and working prototype demonstrations</li>
+              <li>End-to-end design: Schematic -> PCB -> Microcontroller Firmware -> Cloud Integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: PROJECTS SECTION (FILTERABLE) ───── -->
+    <section id="projects" class="section" aria-labelledby="projectsHeading">
+      <div class="container">
+        <!-- Header & Interactive Filter Tabs -->
+        <div class="projects-header-bar">
+          <div>
+            <p class="section-label">// ENGINEERING BUILDS &amp; ARCHITECTURES</p>
+            <h2 class="section-title" id="projectsHeading">
+              Featured <span class="accent-cyan">Projects</span>
+            </h2>
+            <p class="section-subtitle">
+              Production-grade embedded hardware, multi-sensor nodes, and live institutional web portals.
+            </p>
+          </div>
+
+          <!-- Interactive Tab Buttons -->
+          <div class="filter-tabs" role="tablist" aria-label="Filter Projects by Domain">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              All Projects <span class="tab-count">4</span>
+            </button>
+            <button class="filter-tab" data-filter="embedded" role="tab" aria-selected="false">
+              Embedded &amp; IoT <span class="tab-count">3</span>
+            </button>
+            <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">
+              Web Development <span class="tab-count">1</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Card Grid -->
+        <div class="projects-grid" id="projectsGrid">
+
+          <!-- PROJECT 1 (FLAGSHIP): Pixilabs -->
+          <article class="project-card featured-card" data-category="embedded" aria-label="Pixilabs Lead Researcher">
+            <div class="project-card-top">
+              <span class="project-badge-grant">⭐ ₹4,00,000 Research Grant (NAIN 2.0 Batch 2 &amp; VTU VRIF)</span>
+              <span class="project-category-tag">Embedded &amp; IoT // Flagship</span>
+            </div>
+
+            <h3 class="project-title">Pixilabs — Lead Researcher / Hardware Developer</h3>
+
+            <p class="project-desc">
+              Architected the core firmware and multi-sensor telemetry pipelines for an advanced embedded computing system. Executed rapid iterative prototyping from breadboard circuit validation to integrated modular subsystems. Engineered deterministic real-time sensor polling, threshold interrupt monitoring, and fault-tolerant cloud synchronization over Wi-Fi and MQTT protocols.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">ESP32</span>
+              <span class="tech-pill amber">Microcontroller Interfacing</span>
+              <span class="tech-pill amber">Embedded C++</span>
+              <span class="tech-pill">Sensor Systems</span>
+              <span class="tech-pill">Telemetry Pipelines</span>
+              <span class="tech-pill">Closed-Loop Control</span>
+              <span class="tech-pill">UART/I²C</span>
+            </div>
+
+            <div class="project-links-row">
+              <button class="btn btn-primary" style="padding: 7px 16px; font-size: 0.8rem;" onclick="openProjectModal('pixilabs')">
+                View Architecture Specs
+              </button>
+              <a href="https://github.com/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.8rem;">
+                GitHub Source →
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Fresh Threads -->
+          <article class="project-card" data-category="embedded" aria-label="Fresh Threads Revolutionary Laundry System">
+            <div class="project-card-top">
+              <span class="project-badge-grant">₹1,00,000 Grant (NAIN 2.0 Batch 1)</span>
+              <span class="project-category-tag">Embedded &amp; IoT</span>
+            </div>
+
+            <h3 class="project-title">Fresh Threads — Revolutionary Laundry System</h3>
+
+            <p class="project-desc">
+              Engineered automated sensor-driven mechanics and dedicated circuit architecture to optimize resource cycles, water consumption, power handling, and hardware reliability. Implemented closed-loop sensor automation for fluid monitoring and actuator timing.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">Arduino</span>
+              <span class="tech-pill amber">Sensor Automation</span>
+              <span class="tech-pill">Rapid Prototyping</span>
+              <span class="tech-pill">Relay Circuit Design</span>
+              <span class="tech-pill">Power Handling</span>
+            </div>
+
+            <div class="project-links-row">
+              <button class="btn btn-outline" style="padding: 7px 16px; font-size: 0.8rem;" onclick="openProjectModal('freshthreads')">
+                Details &amp; Hardware Circuit
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: Production Institutional Web Portals -->
+          <article class="project-card" data-category="web" aria-label="Production Institutional Web Portals">
+            <div class="project-card-top">
+              <span class="project-badge-prod">Live Production // Institutional</span>
+              <span class="project-category-tag">Web Development</span>
+            </div>
+
+            <h3 class="project-title">Production Institutional Web Portals</h3>
+
+            <p class="project-desc">
+              Engineered official, accessible web portals for educational institutions including Ace Techno Academy (<strong>acetechnoacademy.in</strong>) &amp; Guru Nanak First Grade College. Developed dedicated departmental web platforms for ECE and Applied Science &amp; Humanities (ASH), ensuring responsive mobile-first UX.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3 Architecture</span>
+              <span class="tech-pill">JavaScript ES6+</span>
+              <span class="tech-pill">Responsive Design</span>
+              <span class="tech-pill">SEO &amp; Performance</span>
+            </div>
+
+            <div class="project-links-row">
+              <a href="https://acetechnoacademy.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 7px 16px; font-size: 0.8rem;">
+                Visit acetechnoacademy.in ↗
+              </a>
+              <button class="btn btn-ghost" style="padding: 7px 14px; font-size: 0.8rem;" onclick="openProjectModal('portals')">
+                Case Study
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: Connected IoT & Analytical Sensing -->
+          <article class="project-card" data-category="embedded" aria-label="Connected IoT and Analytical Sensing">
+            <div class="project-card-top">
+              <span class="project-badge-iot">Cloud Telemetry Station</span>
+              <span class="project-category-tag">Embedded &amp; IoT</span>
+            </div>
+
+            <h3 class="project-title">Connected IoT &amp; Analytical Sensing</h3>
+
+            <p class="project-desc">
+              Built an automated IoT environmental &amp; water quality monitoring station with real-time cloud parameter alerts via Blynk IoT. Integrated analytical sensor subsystems for chemical food safety, TDS, temperature, and emergency threshold notification triggers.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">ESP8266</span>
+              <span class="tech-pill amber">Arduino Uno</span>
+              <span class="tech-pill">Blynk IoT Platform</span>
+              <span class="tech-pill">Analytical Sensors</span>
+              <span class="tech-pill">Cloud Alerts</span>
+            </div>
+
+            <div class="project-links-row">
+              <button class="btn btn-outline" style="padding: 7px 16px; font-size: 0.8rem;" onclick="openProjectModal('iotstation')">
+                View Sensor Metrics
+              </button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: TECHNICAL SKILLS MATRIX ─────────── -->
+    <section id="skills" class="section" style="background: rgba(17, 24, 39, 0.4); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);" aria-labelledby="skillsHeading">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; margin-bottom: 24px;">
+          <div>
+            <p class="section-label">// TECHNICAL PROFICIENCY &amp; TOOLING</p>
+            <h2 class="section-title" id="skillsHeading">
+              Skills <span class="accent-cyan">Matrix</span>
+            </h2>
+            <p class="section-subtitle">
+              Cross-disciplinary stack spanning low-level embedded hardware, firmware, prototyping, and modern web interfaces.
+            </p>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan); background: var(--cyan-dim); border: 1px solid rgba(6, 182, 212, 0.2); padding: 6px 14px; border-radius: var(--radius-full);">
+            // HARDWARE + FIRMWARE + WEB
+          </div>
+        </div>
+
+        <div class="skills-matrix-grid">
+          <!-- Category 1: Languages -->
+          <div class="skill-card reveal reveal-delay-1">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">💻</div>
+              <div>
+                <h3 class="skill-card-title">Programming Languages</h3>
+                <span class="skill-card-sub">// Low-level systems &amp; web logic</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot"></span> C (Embedded &amp; Bare-Metal)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> C++ (OOP &amp; Microcontrollers)</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Python (Data Analytics &amp; AI/ML)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> JavaScript (Modern ES6+)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> HTML5 / Semantic Markup</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> CSS3 (Grid, Flexbox, Animations)</div>
+            </div>
+          </div>
+
+          <!-- Category 2: Embedded & Hardware -->
+          <div class="skill-card reveal reveal-delay-2">
+            <div class="skill-card-header">
+              <div class="skill-icon-box amber">⚡</div>
+              <div>
+                <h3 class="skill-card-title">Embedded &amp; Hardware</h3>
+                <span class="skill-card-sub">// Microcontrollers, busses &amp; telemetry</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> ESP32 (Wi-Fi / BLE / Dual Core)</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> ESP8266 Wi-Fi SoC</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Arduino (Uno, Nano, Mega)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Microcontroller Interfacing</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Sensor Telemetry (DHT, MQ, PIR, TDS)</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Protocols: UART / I²C / SPI</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> PWM Actuator &amp; Relay Drivers</div>
+            </div>
+          </div>
+
+          <!-- Category 3: Circuit & Prototyping -->
+          <div class="skill-card reveal reveal-delay-3">
+            <div class="skill-card-header">
+              <div class="skill-icon-box amber">🔌</div>
+              <div>
+                <h3 class="skill-card-title">Circuit &amp; Prototyping</h3>
+                <span class="skill-card-sub">// Electronics design &amp; rapid fabrication</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> Circuit Design &amp; Simulation</div>
+              <div class="skill-chip"><span class="skill-chip-dot amber"></span> PCB Layout Fundamentals</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> VLSI Fundamentals</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> 3D Printing &amp; Prototyping</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Power Electronics &amp; Regulators</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Multimeter &amp; Signal Debugging</div>
+            </div>
+          </div>
+
+          <!-- Category 4: IoT Platforms & Web Tech -->
+          <div class="skill-card reveal reveal-delay-4">
+            <div class="skill-card-header">
+              <div class="skill-icon-box">🌐</div>
+              <div>
+                <h3 class="skill-card-title">IoT &amp; Web Technologies</h3>
+                <span class="skill-card-sub">// Cloud telemetry &amp; developer toolchains</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Blynk IoT Cloud Platform</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> MQTT Protocol</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Responsive Web Architecture</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> VS Code &amp; Extensions</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Git &amp; GitHub Version Control</div>
+              <div class="skill-chip"><span class="skill-chip-dot"></span> Arduino IDE / PlatformIO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: TIMELINE & EXPERIENCE ───────────── -->
+    <section id="experience" class="section" aria-labelledby="timelineHeading">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto;">
+          <p class="section-label" style="justify-content: center;">// CHRONOLOGY OF IMPACT</p>
+          <h2 class="section-title" id="timelineHeading">
+            Experience, Hackathons &amp; <span class="accent-cyan">Leadership</span>
+          </h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            A track record of competitive innovation, industry internship, and institutional leadership.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Item 1: KLE Belagavi Hackathon 2026 -->
+          <div class="timeline-item reveal reveal-delay-1">
+            <div class="timeline-node amber" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Top 5 Hardware Placement — KLE Belagavi Hackathon 2026</h3>
+                  <div class="timeline-org">KLE Technological University, Belagavi</div>
+                </div>
+                <span class="timeline-date-badge amber">August 2026</span>
+              </div>
+              <p class="timeline-desc">
+                Competed in the highly demanding <strong>Hardware Track</strong> among engineering teams from across the region. Architected and demonstrated a fully operational, sensor-integrated embedded hardware prototype within intensive hackathon constraints, securing a distinguished <strong>Top 5 Placement</strong> evaluated by industry experts.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: Skilldunia Internship -->
+          <div class="timeline-item reveal reveal-delay-2">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Python &amp; AI/ML Intern</h3>
+                  <div class="timeline-org">Skilldunia</div>
+                </div>
+                <span class="timeline-date-badge">Feb 2025 – Mar 2025</span>
+              </div>
+              <p class="timeline-desc">
+                Developed data analytics pipelines, exploratory data analysis routines, and worked with foundational machine learning models in Python. Leveraged algorithmic data processing to extract insights from structured sensor and analytical datasets.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: ECE Department Newsletter Coordinator -->
+          <div class="timeline-item reveal reveal-delay-3">
+            <div class="timeline-node amber" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Student Coordinator — Official Newsletter</h3>
+                  <div class="timeline-org">ECE Department, Guru Nanak Dev Engineering College (GNDEC), Bidar</div>
+                </div>
+                <span class="timeline-date-badge amber">2024 – Present</span>
+              </div>
+              <p class="timeline-desc">
+                Serving as head student coordinator for the department's flagship publication. Responsible for editorial curation, technical writing, author reviews, layout publishing, and highlighting departmental research milestones and student innovations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Smart India Hackathon Shortlists -->
+          <div class="timeline-item reveal reveal-delay-4">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Smart India Hackathon (SIH) — Dual Institutional Shortlists</h3>
+                  <div class="timeline-org">Ministry of Education / AICTE National Initiative</div>
+                </div>
+                <span class="timeline-date-badge">SIH 2025 &amp; SIH 2026</span>
+              </div>
+              <p class="timeline-desc">
+                Qualified consecutively across both <strong>SIH 2025</strong> and <strong>SIH 2026</strong> institutional screening rounds. Devised innovative hardware and IoT problem-statement proposals addressing national infrastructure and smart telemetry challenges.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 5: IEEE & ISTE Student Memberships -->
+          <div class="timeline-item reveal reveal-delay-5">
+            <div class="timeline-node" aria-hidden="true">
+              <div class="timeline-node-inner"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role-title">Active Member &amp; Technical Volunteer</h3>
+                  <div class="timeline-org">IEEE Student Branch &amp; ISTE Student Chapter</div>
+                </div>
+                <span class="timeline-date-badge">2023 – Present</span>
+              </div>
+              <p class="timeline-desc">
+                Active member in both the Institute of Electrical and Electronics Engineers (IEEE) and the Indian Society for Technical Education (ISTE). Assisted in organizing microcontroller workshops, symposiums, and peer-learning bootcamps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 7: CONTACT & FOOTER ────────────────── -->
+    <section id="contact" class="section" aria-labelledby="contactHeading">
+      <div class="container">
+        <div style="text-align: center; max-width: 600px; margin: 0 auto 36px;">
+          <p class="section-label" style="justify-content: center;">// INITIATE HANDSHAKE</p>
+          <h2 class="section-title" id="contactHeading">
+            Let's <span class="accent-cyan">Connect</span> &amp; Build
+          </h2>
+          <p class="section-subtitle" style="margin: 0 auto;">
+            Available for embedded firmware engineering, hardware-software collaborations, internships, and research opportunities.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Direct Info Cards -->
+          <div class="contact-info-panel">
+            <!-- Email Card with Copy Action -->
+            <div class="contact-method-card" id="emailCopyCard" title="Click to copy email">
+              <div class="contact-icon-box">✉️</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">DIRECT EMAIL (CLICK TO COPY)</div>
+                <div class="contact-method-val">vinayakdeshmukh5105@gmail.com</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">COPY</span>
+            </div>
+
+            <!-- Phone Card -->
+            <a href="tel:+919591899782" class="contact-method-card" title="Call Vinayak Deshmukh">
+              <div class="contact-icon-box">📞</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">TELEPHONE / MOBILE</div>
+                <div class="contact-method-val">+91 9591899782</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent);">CALL</span>
+            </a>
+
+            <!-- LinkedIn Card -->
+            <a href="https://linkedin.com/in/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="contact-method-card" title="Open LinkedIn">
+              <div class="contact-icon-box">💼</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">LINKEDIN PROFILE</div>
+                <div class="contact-method-val">linkedin.com/in/vinayakdeshmukh5105</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">CONNECT</span>
+            </a>
+
+            <!-- Location Card -->
+            <div class="contact-method-card" style="cursor: default;">
+              <div class="contact-icon-box">📍</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">LOCATION &amp; BASE</div>
+                <div class="contact-method-val">Bidar, Karnataka, India</div>
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                  17.9104° N, 77.5199° E // Open to Remote &amp; On-Site
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Contact Form -->
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">
+              Send a Transmission
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px;">
+              Fill in your details below to dispatch a message directly to my inbox.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="senderName">YOUR NAME *</label>
+                  <input type="text" id="senderName" name="name" class="form-control" placeholder="e.g. Dr. Ramesh / Alex" required />
+                </div>
+                <div class="form-group">
+                  <label for="senderEmail">YOUR EMAIL *</label>
+                  <input type="email" id="senderEmail" name="email" class="form-control" placeholder="alex@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="msgSubject">SUBJECT / PURPOSE *</label>
+                <input type="text" id="msgSubject" name="subject" class="form-control" placeholder="Embedded Project / Research / Internship" required />
+              </div>
+
+              <div class="form-group">
+                <label for="msgBody">PROJECT BRIEF OR MESSAGE *</label>
+                <textarea id="msgBody" name="message" class="form-control" placeholder="Briefly describe your hardware requirements, project scope, or opportunity..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+                Transmit Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <div class="footer-brand">VINAYAK DESHMUKH // ECE ENGINEER</div>
+          <div class="footer-status">
+            <span class="status-dot"></span>
+            <span>SYSTEM STATUS: FIRMWARE ACTIVE · ALL NODES NORMAL</span>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#about" class="footer-link">About</a>
+          <a href="#grants" class="footer-link">Grants (₹5L+)</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#experience" class="footer-link">Timeline</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+
+        <div class="footer-copy">
+          Designed &amp; Engineered by Vinayak Deshmukh<br />
+          <span style="color: var(--cyan);">Bidar, Karnataka, India</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── MODAL: RESUME VIEWER / DOWNLOAD ─────────────── -->
+  <div class="modal-overlay" id="resumeModal" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeResumeModalBtn" aria-label="Close modal">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div style="width: 40px; height: 40px; border-radius: 10px; background: var(--cyan-dim); border: 1px solid var(--cyan); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--cyan);">
+          📄
+        </div>
+        <div>
+          <h3 id="resumeModalTitle" style="font-size: 1.3rem; font-weight: 700; color: #fff;">Vinayak Deshmukh — Resume</h3>
+          <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan);">ECE | IoT &amp; Embedded Systems | Firmware</p>
+        </div>
+      </div>
+
+      <div style="background: #080c14; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 20px; font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 24px;">
+        <div style="color: var(--accent); font-weight: 700; margin-bottom: 6px;">[HIGHLIGHTS SUMMARY]</div>
+        • 5th Sem B.E. Electronics &amp; Communication Eng. (CGPA: 8.2 / 10)<br />
+        • ₹5,00,000+ Research Grants Won (VTU VRIF SamShoDhana &amp; NAIN 2.0 Batches 1 &amp; 2)<br />
+        • Top 5 Hardware Placement — KLE Belagavi Hackathon 2026<br />
+        • 2x Smart India Hackathon (SIH 2025, 2026) Shortlisted<br />
+        • Student Coordinator: ECE Dept Newsletter | IEEE &amp; ISTE Student Member<br />
+        • Core Tech: ESP32, C/C++, Arduino, Python, Blynk, HTML5/CSS3/JS
+      </div>
+
+      <div style="display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap;">
+        <button class="btn btn-ghost" id="printResumeBtn">
+          Print / Save PDF
+        </button>
+        <a href="mailto:vinayakdeshmukh5105@gmail.com?subject=Resume%20Request%20-%20Vinayak%20Deshmukh" class="btn btn-primary">
+          Request Official PDF Copy
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MODAL: PROJECT DETAILS VIEWER ───────────────── -->
+  <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeProjectModalBtn" aria-label="Close modal">&times;</button>
+      
+      <div id="projectModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCRIPTS: INTERACTIONS & ANIMATIONS ─────────── -->
+  <script>
+    // 1. Toast Notification Helper
+    function showToast(message, icon = '⚡') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.add('show');
+      
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    // 2. Cursor glow follow
+    const cursorGlow = document.getElementById('cursorGlow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // 3. Navbar scroll effect & Spy Scroll
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-links .nav-link');
+    const sections = document.querySelectorAll('main > section');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+
+      let currentSection = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+        if (window.scrollY >= top && window.scrollY < top + height) {
+          currentSection = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${currentSection}`);
+      });
+    });
+
+    // 4. Hamburger & Mobile Menu
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    hamburgerBtn.addEventListener('click', () => {
+      const isOpen = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', isOpen);
+      hamburgerBtn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileNav.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // 5. Animated Metric Counters
+    let countersAnimated = false;
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const isCurr = counter.getAttribute('data-format') === 'curr';
+        const isDecimal = counter.getAttribute('data-decimal') !== null;
+        let start = 0;
+        const duration = 1800;
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increment = target / steps;
+
+        const timer = setInterval(() => {
+          start += increment;
+          if (start >= target) {
+            start = target;
+            clearInterval(timer);
+          }
+          if (isCurr) {
+            counter.textContent = Math.floor(start).toLocaleString('en-IN');
+          } else if (isDecimal) {
+            counter.textContent = start.toFixed(1);
+          } else {
+            counter.textContent = Math.floor(start);
+          }
+        }, stepTime);
+      });
+    }
+
+    // 6. Intersection Observer for Scroll Reveals & Counters
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    const statSection = document.querySelector('.stat-strip-section');
+    if (statSection) {
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersAnimated) {
+            countersAnimated = true;
+            animateCounters();
+          }
+        });
+      }, { threshold: 0.2 });
+      statObserver.observe(statSection);
+    }
+
+    // 7. Interactive Project Filtering
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(16px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 250);
+          }
+        });
+      });
+    });
+
+    // 8. Simulated Live HUD Jitter
+    setInterval(() => {
+      const hudPackets = document.getElementById('hudPackets');
+      const hudTemp = document.getElementById('hudTemp');
+      if (hudPackets && hudTemp) {
+        const packets = Math.floor(124 + Math.random() * 12);
+        const temp = (34.5 + Math.random() * 0.8).toFixed(1);
+        hudPackets.textContent = `${packets} pkt/s`;
+        hudTemp.textContent = `${temp} °C`;
+      }
+    }, 2800);
+
+    // 9. One-Click Email Copy
+    const emailCopyCard = document.getElementById('emailCopyCard');
+    if (emailCopyCard) {
+      emailCopyCard.addEventListener('click', () => {
+        const email = 'vinayakdeshmukh5105@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('Email address copied to clipboard!', '📋');
+        }).catch(() => {
+          window.location.href = `mailto:${email}`;
+        });
+      });
+    }
+
+    // 10. Contact Form Transmission with validation & mailto fallback
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('senderName').value.trim();
+        const email = document.getElementById('senderEmail').value.trim();
+        const subject = document.getElementById('msgSubject').value.trim();
+        const message = document.getElementById('msgBody').value.trim();
+
+        if (!name || !email || !subject || !message) {
+          showToast('Please fill out all required fields.', '⚠️');
+          return;
+        }
+
+        const mailtoLink = `mailto:vinayakdeshmukh5105@gmail.com?subject=${encodeURIComponent('[Portfolio Transmission] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+        
+        showToast('Opening email client for transmission...', '🚀');
+        setTimeout(() => {
+          window.location.href = mailtoLink;
+          contactForm.reset();
+        }, 800);
+      });
+    }
+
+    // 11. Resume Modal
+    const resumeModal = document.getElementById('resumeModal');
+    const navResumeBtn = document.getElementById('navResumeBtn');
+    const heroResumeBtn = document.getElementById('heroResumeBtn');
+    const mobileResumeBtn = document.getElementById('mobileResumeBtn');
+    const closeResumeModalBtn = document.getElementById('closeResumeModalBtn');
+    const printResumeBtn = document.getElementById('printResumeBtn');
+
+    function openResumeModal() {
+      resumeModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeResumeModal() {
+      resumeModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    if (navResumeBtn) navResumeBtn.addEventListener('click', openResumeModal);
+    if (heroResumeBtn) heroResumeBtn.addEventListener('click', openResumeModal);
+    if (mobileResumeBtn) mobileResumeBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open');
+      mobileNav.classList.remove('open');
+      openResumeModal();
+    });
+    if (closeResumeModalBtn) closeResumeModalBtn.addEventListener('click', closeResumeModal);
+
+    resumeModal.addEventListener('click', (e) => {
+      if (e.target === resumeModal) closeResumeModal();
+    });
+
+    if (printResumeBtn) {
+      printResumeBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    // 12. Project Detail Modal Data & Handler
+    const projectModal = document.getElementById('projectModal');
+    const closeProjectModalBtn = document.getElementById('closeProjectModalBtn');
+    const projectModalContent = document.getElementById('projectModalContent');
+
+    const projectData = {
+      pixilabs: {
+        title: 'Pixilabs — Lead Researcher / Hardware Developer',
+        badge: '₹4,00,000 Research Grant (NAIN 2.0 Batch 2 & VTU VRIF)',
+        stack: ['ESP32', 'FreeRTOS', 'Embedded C++', 'Sensor Fusion', 'MQTT', 'Closed-Loop Telemetry'],
+        details: `
+          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
+            As Lead Researcher and Hardware Architect on Pixilabs, I engineered the multi-sensor acquisition pipelines and low-latency cloud communications powering our embedded deployment.
+          </p>
+          <div style="background:#080c14; padding:16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); font-family:var(--font-mono); font-size:0.8rem; margin-bottom:16px;">
+            <div style="color:var(--cyan); margin-bottom:6px;">// ARCHITECTURE SPECS:</div>
+            • Dual-Core ESP32 Xtensa LX7 @ 240 MHz<br />
+            • FreeRTOS deterministic task segregation for Sensor Acquisition vs. Telemetry Transmission<br />
+            • Dynamic threshold interrupts for rapid anomaly recognition<br />
+            • Microcontroller Interfacing: I2C high-speed sensor bus + UART diagnostic log stream
+          </div>
+          <div style="display:flex; gap:10px;">
+            <a href="https://github.com/vinayakdeshmukh5105" target="_blank" class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;">View GitHub Profile</a>
+          </div>
+        `
+      },
+      freshthreads: {
+        title: 'Fresh Threads — Revolutionary Laundry System',
+        badge: '₹1,00,000 Research Grant (NAIN 2.0 Batch 1)',
+        stack: ['Arduino', 'Sensor Automation', 'Circuit Design', 'Relay Switching', 'Rapid Prototyping'],
+        details: `
+          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
+            Fresh Threads is an automated, sensor-driven laundry automation unit designed to conserve water, optimize chemical dispenser dosing, and streamline physical resource cycles.
+          </p>
+          <div style="background:#080c14; padding:16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); font-family:var(--font-mono); font-size:0.8rem; margin-bottom:16px;">
+            <div style="color:var(--accent); margin-bottom:6px;">// SYSTEM HIGHLIGHTS:</div>
+            • Closed-loop sensor monitoring for water volume and turbidity<br />
+            • High-reliability relay banks with optical isolation for AC solenoid actuation<br />
+            • Prototyped and funded under Karnataka NAIN 2.0 Batch 1
+          </div>
+        `
+      },
+      portals: {
+        title: 'Production Institutional Web Portals',
+        badge: 'Live Production // Institutional Recognition',
+        stack: ['HTML5', 'CSS3 Architecture', 'JavaScript', 'Responsive UI', 'SEO'],
+        details: `
+          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
+            Designed, deployed, and maintain official production web platforms for prominent regional institutions:
+          </p>
+          <div style="background:#080c14; padding:16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); font-family:var(--font-mono); font-size:0.8rem; margin-bottom:16px;">
+            • <strong>Ace Techno Academy:</strong> <a href="https://acetechnoacademy.in" target="_blank" style="color:var(--cyan); text-decoration:underline;">acetechnoacademy.in</a><br />
+            • <strong>Guru Nanak First Grade College:</strong> Official portals &amp; symposium archives<br />
+            • <strong>Departmental Portals:</strong> Electronics &amp; Communication (ECE) &amp; Applied Science (ASH)
+          </div>
+          <a href="https://acetechnoacademy.in" target="_blank" class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;">Open acetechnoacademy.in ↗</a>
+        `
+      },
+      iotstation: {
+        title: 'Connected IoT & Analytical Sensing Station',
+        badge: 'Live Telemetry Station',
+        stack: ['ESP8266', 'Arduino Uno', 'Blynk IoT Platform', 'Analytical Probes', 'Cloud Alerts'],
+        details: `
+          <p style="color:var(--text-secondary); line-height:1.7; margin-bottom:16px;">
+            Built an autonomous water quality monitoring station alongside an analytical sensor subsystem for food safety and environmental checks.
+          </p>
+          <div style="background:#080c14; padding:16px; border-radius:8px; border:1px solid rgba(255,255,255,0.08); font-family:var(--font-mono); font-size:0.8rem; margin-bottom:16px;">
+            <div style="color:var(--cyan); margin-bottom:6px;">// TELEMETRY METRICS:</div>
+            • TDS (Total Dissolved Solids) in ppm with automated quality grading<br />
+            • Temperature and chemical marker threshold detection<br />
+            • Real-time cloud synchronization to mobile dashboards via Blynk IoT
+          </div>
+        `
+      }
+    };
+
+    function openProjectModal(key) {
+      const data = projectData[key];
+      if (!data) return;
+
+      projectModalContent.innerHTML = `
+        <div style="display:inline-block; font-family:var(--font-mono); font-size:0.75rem; color:var(--accent); background:var(--accent-dim); padding:4px 10px; border-radius:100px; margin-bottom:12px; border:1px solid rgba(245,158,11,0.25);">
+          ${data.badge}
+        </div>
+        <h3 style="font-size:1.35rem; font-weight:800; color:#fff; margin-bottom:16px;">${data.title}</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+          ${data.stack.map(s => `<span class="tech-pill">${s}</span>`).join('')}
+        </div>
+        ${data.details}
+      `;
+
+      projectModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    if (closeProjectModalBtn) {
+      closeProjectModalBtn.addEventListener('click', () => {
+        projectModal.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        projectModal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close modals on Escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeResumeModal();
+        if (projectModal.classList.contains('open')) {
+          projectModal.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

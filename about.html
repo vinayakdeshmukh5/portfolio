@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="About Vinayak Deshmukh — Electronics & Communication Engineering undergraduate specializing in IoT, Embedded Systems, Firmware, and Web Technologies. GNDEC Bidar, CGPA 8.2." />
+  <title>About | Vinayak Deshmukh — Embedded Systems &amp; IoT Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .about-bio-text {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .about-bio-text strong {
+      color: var(--text-primary);
+    }
+
+    .edu-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .edu-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .edu-card:hover {
+      border-color: var(--cyan);
+      transform: translateX(4px);
+    }
+
+    .edu-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--cyan);
+    }
+
+    .edu-icon.amber {
+      background: rgba(245, 158, 11, 0.1);
+      border-color: rgba(245, 158, 11, 0.25);
+      color: var(--accent);
+    }
+
+    .edu-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .edu-sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .edu-detail {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--cyan);
+    }
+
+    .edu-year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1024px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .edu-card {
+        grid-template-columns: auto 1fr;
+      }
+      .edu-year {
+        grid-column: span 2;
+        justify-self: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">VD</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Vinayak Deshmukh</span>
+            <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Get in Touch</a></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- ── PAGE HERO ────────────────────────────── -->
+    <div style="background: rgba(17, 24, 39, 0.4); border-bottom: 1px solid var(--border); padding: 80px 0 60px; position: relative;">
+      <div class="container">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; letter-spacing: 0.1em;">
+          // BACKGROUND &amp; ENGINEERING ETHOS
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;">
+          Bridging <span class="accent-cyan">Hardware Telemetry</span> and Full-Stack Code
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; line-height: 1.75;">
+          A closer look into Vinayak Deshmukh's academic background, engineering approach, and competitive research track record.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── ABOUT & PHILOSOPHY SECTION ───────────── -->
+    <section class="section" aria-labelledby="about-narrative">
+      <div class="container">
+        <div class="about-layout">
+          <!-- Left: Narrative -->
+          <div>
+            <p class="section-label reveal">// THE NARRATIVE</p>
+            <h2 class="section-title reveal reveal-delay-1" id="about-narrative">
+              Engineering with Hands-on Grit
+            </h2>
+
+            <div class="about-bio-text reveal reveal-delay-2">
+              <p>
+                I am an <strong>Electronics &amp; Communication Engineering undergraduate</strong> at <strong>Guru Nanak Dev Engineering College (GNDEC), Bidar</strong>, currently in my 5th semester maintaining a <strong>CGPA of 8.2 / 10</strong>.
+              </p>
+              <p>
+                My passion is centered around <strong>embedded systems, firmware development, and IoT architectures</strong>. I believe that true innovation occurs at the boundary where physical sensor measurements meet intelligent, memory-efficient firmware logic. Whether writing bare-metal C++ for an ESP32 or managing multi-sensor interrupt routines on an Arduino, I focus on hardware reliability, deterministic latency, and low power consumption.
+              </p>
+              <p>
+                Alongside hardware, I build responsive, production web portals — including official web platforms for institutions like <strong>Ace Techno Academy (acetechnoacademy.in)</strong> and departmental platforms for ECE and ASH at GNDEC Bidar.
+              </p>
+              <p>
+                In competitive technical research, I have won <strong>over ₹5,00,000 in research grants</strong> under the prestigious <strong>VTU VRIF SamShoDhana Scheme (2026)</strong> and Karnataka's <strong>NAIN 2.0 (Batch 1 &amp; Batch 2)</strong>. I also achieved a <strong>Top 5 placement in the Hardware Track at the KLE Belagavi Hackathon 2026</strong>, and earned dual institutional shortlists in the <strong>Smart India Hackathon (SIH 2025, 2026)</strong>.
+              </p>
+            </div>
+
+            <div style="margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap;" class="reveal reveal-delay-3">
+              <a href="projects.html" class="btn btn-primary">Explore Projects →</a>
+              <a href="contact.html" class="btn btn-outline">Initiate Contact</a>
+            </div>
+          </div>
+
+          <!-- Right: Key Pillars Card -->
+          <div>
+            <div class="card card-glow-amber reveal reveal-delay-2" style="padding: 32px;">
+              <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 20px;">
+                🏆 Key Honors at a Glance
+              </h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 18px;">
+                <div style="border-left: 3px solid var(--accent); padding-left: 14px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent);">RESEARCH GRANT</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">VTU VRIF SamShoDhana Scheme (2026)</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">Student Researcher &amp; Team Lead</div>
+                </div>
+
+                <div style="border-left: 3px solid var(--accent); padding-left: 14px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent);">INNOVATION FUNDING</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">NAIN 2.0 Batch 1 &amp; Batch 2</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">₹5,00,000+ Total Grants for Pixilabs &amp; Fresh Threads</div>
+                </div>
+
+                <div style="border-left: 3px solid var(--cyan); padding-left: 14px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">HACKATHON FINALIST</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">KLE Belagavi Hackathon 2026</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">Top 5 Hardware Placement</div>
+                </div>
+
+                <div style="border-left: 3px solid var(--cyan); padding-left: 14px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">NATIONAL INITIATIVE</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">Smart India Hackathon (SIH)</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">Dual Institutional Shortlist (2025 &amp; 2026)</div>
+                </div>
+
+                <div style="border-left: 3px solid #34d399; padding-left: 14px;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: #34d399;">LEADERSHIP &amp; COMMUNITY</div>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #fff;">ECE Department Newsletter Coordinator</div>
+                  <div style="font-size: 0.8rem; color: var(--text-secondary);">Active IEEE &amp; ISTE Student Member</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── EDUCATION SECTION ──────────────────────── -->
+        <div style="margin-top: 80px;">
+          <p class="section-label reveal">// ACADEMICS</p>
+          <h2 class="section-title reveal reveal-delay-1">Educational Background</h2>
+          
+          <div class="edu-timeline">
+            <div class="edu-card reveal reveal-delay-1">
+              <div class="edu-icon amber">🏛️</div>
+              <div>
+                <div class="edu-title">Bachelor of Engineering (B.E.) — Electronics &amp; Communication</div>
+                <div class="edu-sub">Guru Nanak Dev Engineering College (GNDEC), Bidar · Visvesvaraya Technological University</div>
+                <div class="edu-detail">5th Semester &nbsp;·&nbsp; CGPA: 8.2 / 10 &nbsp;·&nbsp; Focus: Embedded Systems, IoT, Microcontrollers, VLSI, Signal Telemetry</div>
+              </div>
+              <div class="edu-year">2022 – 2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">// VINAYAK DESHMUKH · ABOUT</span>
+          <span class="footer-status"><span class="status-dot"></span>Available for Internships &amp; Research</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="skills.html" class="footer-link">Skills</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="leadership.html" class="footer-link">Leadership</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 Vinayak Deshmukh</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open'); mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+    }));
+
+    document.addEventListener('mousemove', e => {
+      const g = document.getElementById('cursorGlow');
+      g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

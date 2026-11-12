@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Contact Vinayak Deshmukh — Electronics & Communication Engineer specializing in IoT, Embedded Systems, Firmware, and Web Technologies. Location: Bidar, Karnataka, India." />
+  <title>Contact | Vinayak Deshmukh — Embedded Systems &amp; IoT Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 48px;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-method-card {
+      background: rgba(22, 32, 51, 0.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .contact-method-card:hover {
+      border-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.08);
+      transform: translateX(4px);
+    }
+
+    .contact-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(11, 15, 25, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    .contact-method-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .contact-method-val {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      word-break: break-all;
+    }
+
+    .contact-form-card {
+      background: rgba(22, 32, 51, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      letter-spacing: 0.05em;
+    }
+
+    .form-control {
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      font-family: inherit;
+      transition: var(--transition-fast);
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+      background: rgba(11, 15, 25, 0.95);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite">
+    <span class="toast-icon" id="toastIcon">⚡</span>
+    <span id="toastMessage">Action completed!</span>
+  </div>
+
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">VD</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Vinayak Deshmukh</span>
+            <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Get in Touch</a></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projects</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="contact.html" class="active">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- ── PAGE HERO ────────────────────────────── -->
+    <div style="background: rgba(17, 24, 39, 0.4); border-bottom: 1px solid var(--border); padding: 80px 0 60px; position: relative;">
+      <div class="container">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; letter-spacing: 0.1em;">
+          // INITIATE HANDSHAKE
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;">
+          Connect with <span class="accent-cyan">Vinayak Deshmukh</span>
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; line-height: 1.75;">
+          Open to embedded firmware roles, hardware-software collaborations, internships, and research opportunities.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── CONTACT SECTION ──────────────────────── -->
+    <section class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left Column: Direct Info Cards -->
+          <div class="contact-info-panel">
+            <h2 style="font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 8px;" id="contact-title">
+              Direct Transmission Lines
+            </h2>
+            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 12px;">
+              Based in Bidar, Karnataka, India. Available for remote and on-site engineering challenges.
+            </p>
+
+            <!-- Email Card with Copy Action -->
+            <div class="contact-method-card" id="emailCopyCard" title="Click to copy email">
+              <div class="contact-icon-box">✉️</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">DIRECT EMAIL (CLICK TO COPY)</div>
+                <div class="contact-method-val">vinayakdeshmukh5105@gmail.com</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">COPY</span>
+            </div>
+
+            <!-- Phone Card -->
+            <a href="tel:+919591899782" class="contact-method-card" title="Call Vinayak Deshmukh">
+              <div class="contact-icon-box">📞</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">TELEPHONE / MOBILE</div>
+                <div class="contact-method-val">+91 9591899782</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent);">CALL</span>
+            </a>
+
+            <!-- LinkedIn Card -->
+            <a href="https://linkedin.com/in/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="contact-method-card" title="Open LinkedIn">
+              <div class="contact-icon-box">💼</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">LINKEDIN PROFILE</div>
+                <div class="contact-method-val">linkedin.com/in/vinayakdeshmukh5105</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">CONNECT</span>
+            </a>
+
+            <!-- GitHub Card -->
+            <a href="https://github.com/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="contact-method-card" title="Open GitHub">
+              <div class="contact-icon-box">🐙</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">GITHUB REPOSITORIES</div>
+                <div class="contact-method-val">github.com/vinayakdeshmukh5105</div>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--cyan);">EXPLORE</span>
+            </a>
+
+            <!-- Location Card -->
+            <div class="contact-method-card" style="cursor: default;">
+              <div class="contact-icon-box">📍</div>
+              <div style="flex: 1;">
+                <div class="contact-method-label">LOCATION &amp; BASE</div>
+                <div class="contact-method-val">Bidar, Karnataka, India</div>
+                <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">
+                  17.9104° N, 77.5199° E // Open to Remote &amp; On-Site
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="contact-form-card">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 8px;">
+              Send a Transmission
+            </h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 24px;">
+              Fill in your details below to dispatch a message directly to my inbox.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="senderName">YOUR NAME *</label>
+                  <input type="text" id="senderName" name="name" class="form-control" placeholder="e.g. Dr. Ramesh / Alex" required />
+                </div>
+                <div class="form-group">
+                  <label for="senderEmail">YOUR EMAIL *</label>
+                  <input type="email" id="senderEmail" name="email" class="form-control" placeholder="alex@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="msgSubject">SUBJECT / PURPOSE *</label>
+                <input type="text" id="msgSubject" name="subject" class="form-control" placeholder="Embedded Project / Research / Internship" required />
+              </div>
+
+              <div class="form-group">
+                <label for="msgBody">PROJECT BRIEF OR MESSAGE *</label>
+                <textarea id="msgBody" name="message" class="form-control" placeholder="Briefly describe your hardware requirements, project scope, or opportunity..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+                Transmit Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">// VINAYAK DESHMUKH · CONTACT</span>
+          <span class="footer-status"><span class="status-dot"></span>Available for Opportunities</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="skills.html" class="footer-link">Skills</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="leadership.html" class="footer-link">Leadership</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 Vinayak Deshmukh</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function showToast(message, icon = '⚡') {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      const toastIcon = document.getElementById('toastIcon');
+      toastMsg.textContent = message;
+      toastIcon.textContent = icon;
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 3500);
+    }
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open'); mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+    }));
+
+    document.addEventListener('mousemove', e => {
+      const g = document.getElementById('cursorGlow');
+      g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+    });
+
+    const emailCopyCard = document.getElementById('emailCopyCard');
+    if (emailCopyCard) {
+      emailCopyCard.addEventListener('click', () => {
+        const email = 'vinayakdeshmukh5105@gmail.com';
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('Email address copied to clipboard!', '📋');
+        }).catch(() => {
+          window.location.href = `mailto:${email}`;
+        });
+      });
+    }
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('senderName').value.trim();
+        const email = document.getElementById('senderEmail').value.trim();
+        const subject = document.getElementById('msgSubject').value.trim();
+        const message = document.getElementById('msgBody').value.trim();
+
+        if (!name || !email || !subject || !message) {
+          showToast('Please fill out all required fields.', '⚠️');
+          return;
+        }
+
+        const mailtoLink = `mailto:vinayakdeshmukh5105@gmail.com?subject=${encodeURIComponent('[Portfolio Transmission] ' + subject)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + message)}`;
+        showToast('Opening your email client...', '🚀');
+        setTimeout(() => {
+          window.location.href = mailtoLink;
+          contactForm.reset();
+        }, 800);
+      });
+    }
+  </script>
+</body>
+
+</html>

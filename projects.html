@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Projects &amp; Builds — Vinayak Deshmukh. ESP32 Telemetry, Pixilabs (₹4L Grant), Fresh Threads (₹1L Grant), Institutional Web Portals, and Connected IoT Sensing." />
+  <title>Projects &amp; Builds | Vinayak Deshmukh — Embedded Systems &amp; IoT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+
+  <style>
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 24px;
+    }
+
+    .project-card {
+      background: rgba(22, 32, 51, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.15);
+      border-color: var(--border-cyan);
+    }
+
+    .project-card.featured-card {
+      grid-column: span 2;
+      border-color: rgba(6, 182, 212, 0.4);
+      background: linear-gradient(135deg, rgba(22, 32, 51, 0.85), rgba(15, 23, 42, 0.95));
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(6, 182, 212, 0.18);
+    }
+
+    .project-card.featured-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--accent), var(--cyan));
+    }
+
+    .project-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      gap: 16px;
+    }
+
+    .project-badge-grant {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
+    }
+
+    .project-badge-prod {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.1);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .project-badge-iot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+    }
+
+    .project-category-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .project-tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(11, 15, 25, 0.8);
+      color: var(--cyan);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+    }
+
+    .tech-pill.amber {
+      color: var(--accent);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .project-links-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card.featured-card {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ── NAV ──────────────────────────────────────── -->
+  <nav id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon">VD</div>
+          <div class="nav-logo-text">
+            <span class="nav-logo-name">Vinayak Deshmukh</span>
+            <span class="nav-logo-tag">// IoT · Embedded · Firmware</span>
+          </div>
+        </a>
+        <ul class="nav-links" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-cta"><a href="contact.html" class="btn btn-primary">Get in Touch</a></div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- ── PAGE HERO ────────────────────────────── -->
+    <div style="background: rgba(17, 24, 39, 0.4); border-bottom: 1px solid var(--border); padding: 80px 0 60px; position: relative;">
+      <div class="container">
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--cyan); margin-bottom: 12px; letter-spacing: 0.1em;">
+          // RESEARCH BUILDS &amp; SYSTEMS
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 16px;">
+          Hardware <span class="accent-cyan">Architectures</span> &amp; Web Portals
+        </h1>
+        <p style="font-size: 1.05rem; color: var(--text-secondary); max-width: 650px; line-height: 1.75;">
+          From ESP32 multi-sensor telemetry nodes funded under ₹5,00,000+ grants to live production educational web portals.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── PROJECTS SECTION ─────────────────────── -->
+    <section class="section" aria-labelledby="projects-title">
+      <div class="container">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:40px; gap:24px; flex-wrap:wrap;">
+          <div>
+            <p class="section-label reveal">// PORTFOLIO SHOWCASE</p>
+            <h2 class="section-title reveal reveal-delay-1" id="projects-title">All Engineering Projects</h2>
+          </div>
+
+          <!-- Interactive Tab Buttons -->
+          <div class="filter-tabs reveal reveal-delay-1" role="tablist" aria-label="Filter Projects">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">
+              All Projects <span class="tab-count">4</span>
+            </button>
+            <button class="filter-tab" data-filter="embedded" role="tab" aria-selected="false">
+              Embedded &amp; IoT <span class="tab-count">3</span>
+            </button>
+            <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">
+              Web Development <span class="tab-count">1</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project 1 (Flagship): Pixilabs -->
+          <article class="project-card featured-card reveal reveal-delay-1" data-category="embedded" aria-label="Pixilabs Lead Researcher">
+            <div class="project-card-top">
+              <span class="project-badge-grant">⭐ ₹4,00,000 Research Grant (NAIN 2.0 Batch 2 &amp; VTU VRIF)</span>
+              <span class="project-category-tag">Embedded &amp; IoT // Flagship</span>
+            </div>
+
+            <h3 class="project-title">Pixilabs — Lead Researcher / Hardware Developer</h3>
+
+            <p class="project-desc">
+              Architected the core firmware and multi-sensor telemetry pipelines for an advanced embedded computing system. Executed rapid iterative prototyping from breadboard circuit validation to integrated modular subsystems. Engineered deterministic real-time sensor polling, threshold interrupt monitoring, and fault-tolerant cloud synchronization over Wi-Fi and MQTT protocols.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">ESP32</span>
+              <span class="tech-pill amber">Microcontroller Interfacing</span>
+              <span class="tech-pill amber">Embedded C++</span>
+              <span class="tech-pill">Sensor Systems</span>
+              <span class="tech-pill">Telemetry Pipelines</span>
+              <span class="tech-pill">Closed-Loop Control</span>
+              <span class="tech-pill">UART/I²C</span>
+            </div>
+
+            <div class="project-links-row">
+              <a href="https://github.com/vinayakdeshmukh5105" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 7px 18px; font-size: 0.82rem;">
+                GitHub Source →
+              </a>
+              <a href="contact.html" class="btn btn-outline" style="padding: 7px 18px; font-size: 0.82rem;">
+                Inquire about Specs
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Fresh Threads -->
+          <article class="project-card reveal reveal-delay-2" data-category="embedded" aria-label="Fresh Threads Revolutionary Laundry System">
+            <div class="project-card-top">
+              <span class="project-badge-grant">₹1,00,000 Grant (NAIN 2.0 Batch 1)</span>
+              <span class="project-category-tag">Embedded &amp; IoT</span>
+            </div>
+
+            <h3 class="project-title">Fresh Threads — Revolutionary Laundry System</h3>
+
+            <p class="project-desc">
+              Engineered automated sensor-driven mechanics and dedicated circuit architecture to optimize resource cycles, water consumption, power handling, and hardware reliability. Implemented closed-loop sensor automation for fluid monitoring and actuator timing.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">Arduino</span>
+              <span class="tech-pill amber">Sensor Automation</span>
+              <span class="tech-pill">Rapid Prototyping</span>
+              <span class="tech-pill">Relay Circuit Design</span>
+              <span class="tech-pill">Power Handling</span>
+            </div>
+
+            <div class="project-links-row">
+              <a href="contact.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.82rem;">
+                Request Hardware Schematic
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Production Institutional Web Portals -->
+          <article class="project-card reveal reveal-delay-3" data-category="web" aria-label="Production Institutional Web Portals">
+            <div class="project-card-top">
+              <span class="project-badge-prod">Live Production // Institutional</span>
+              <span class="project-category-tag">Web Development</span>
+            </div>
+
+            <h3 class="project-title">Production Institutional Web Portals</h3>
+
+            <p class="project-desc">
+              Engineered official, accessible web portals for educational institutions including Ace Techno Academy (<strong>acetechnoacademy.in</strong>) &amp; Guru Nanak First Grade College. Developed dedicated departmental web platforms for ECE and Applied Science &amp; Humanities (ASH), ensuring responsive mobile-first UX.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill">HTML5</span>
+              <span class="tech-pill">CSS3 Architecture</span>
+              <span class="tech-pill">JavaScript ES6+</span>
+              <span class="tech-pill">Responsive Design</span>
+              <span class="tech-pill">SEO &amp; Performance</span>
+            </div>
+
+            <div class="project-links-row">
+              <a href="https://acetechnoacademy.in" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 7px 18px; font-size: 0.82rem;">
+                Visit acetechnoacademy.in ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 4: Connected IoT & Analytical Sensing -->
+          <article class="project-card reveal reveal-delay-4" data-category="embedded" aria-label="Connected IoT and Analytical Sensing">
+            <div class="project-card-top">
+              <span class="project-badge-iot">Cloud Telemetry Station</span>
+              <span class="project-category-tag">Embedded &amp; IoT</span>
+            </div>
+
+            <h3 class="project-title">Connected IoT &amp; Analytical Sensing</h3>
+
+            <p class="project-desc">
+              Built an automated IoT environmental &amp; water quality monitoring station with real-time cloud parameter alerts via Blynk IoT. Integrated analytical sensor subsystems for chemical food safety, TDS, temperature, and emergency threshold notification triggers.
+            </p>
+
+            <div class="project-tech-stack">
+              <span class="tech-pill amber">ESP8266</span>
+              <span class="tech-pill amber">Arduino Uno</span>
+              <span class="tech-pill">Blynk IoT Platform</span>
+              <span class="tech-pill">Analytical Sensors</span>
+              <span class="tech-pill">Cloud Alerts</span>
+            </div>
+
+            <div class="project-links-row">
+              <a href="contact.html" class="btn btn-outline" style="padding: 7px 16px; font-size: 0.82rem;">
+                Inquire about IoT Architecture
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────── -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">// VINAYAK DESHMUKH · PROJECTS</span>
+          <span class="footer-status"><span class="status-dot"></span>Available for Internships &amp; Research</span>
+        </div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="skills.html" class="footer-link">Skills</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="leadership.html" class="footer-link">Leadership</a>
+          <a href="contact.html" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-copy">© 2026 Vinayak Deshmukh</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+    
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburgerBtn.addEventListener('click', () => {
+      const open = hamburgerBtn.classList.toggle('open');
+      mobileNav.classList.toggle('open', open);
+      hamburgerBtn.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('open'); mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded','false'); document.body.style.overflow='';
+    }));
+
+    document.addEventListener('mousemove', e => {
+      const g = document.getElementById('cursorGlow');
+      g.style.left = e.clientX + 'px'; g.style.top = e.clientY + 'px';
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Interactive Filter Tabs
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(16px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 250);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
